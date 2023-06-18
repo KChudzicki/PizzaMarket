@@ -25,7 +25,7 @@ public class OrersController {
 
     @GetMapping("order/{pizza-id}")
     public String orderdForm(@PathVariable("pizza-id")Long pizzaId, Model model){
-        PizzaModel pizza = pizzaService.getById(pizzaId);
+       PizzaModel pizza = pizzaService.getById(pizzaId);
         model.addAttribute("orderAddresss" , new OrderAddressModel());
         model.addAttribute("pizza", pizza);
 

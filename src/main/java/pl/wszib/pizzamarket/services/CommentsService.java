@@ -28,18 +28,10 @@ public class CommentsService {
         return entities.stream().
                 map(CommentsMapper::toModel)
                 .toList();
-
-
     }
 
-
-    public CommentsModel getById(Long commentId) {
-        CommentsEntity commentsEntity = commentsRepository.findById(commentId).orElseThrow(EntityNotFoundException::new);
-
-        return CommentsMapper.toModel(commentsEntity);
-    }
     public void saveComment(Long commentsId, CommentsSaveModel commentsSaveModel) {
-        CommentsEntity commentsEntity1 = commentsRepository.findById(commentsId).orElseThrow(EntityNotFoundException::new);
+
         CommentsEntity commentsEntity = CommentSaveMapper.toEntity(commentsSaveModel);
         CommentsEntity comment = new CommentsEntity();
         comment.setName(commentsEntity.getName());

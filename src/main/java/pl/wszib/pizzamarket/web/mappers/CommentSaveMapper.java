@@ -6,9 +6,9 @@ import pl.wszib.pizzamarket.web.models.CommentsSaveModel;
 
 public class CommentSaveMapper {
     public static CommentsEntity toEntity(CommentsSaveModel model){
-        CommentsEntity commentsEntity = new CommentsEntity();
-        commentsEntity.setName(model.getName());
-        commentsEntity.setComment(model.getComment());
-        return commentsEntity;
+        CommentsEntity entity = new CommentsEntity();
+        entity.setName(model.getName());
+        entity.setComment(model.getComment());
+        return entity;
     }
 }

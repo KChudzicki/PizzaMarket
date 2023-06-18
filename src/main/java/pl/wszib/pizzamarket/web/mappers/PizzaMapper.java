@@ -5,8 +5,7 @@ import pl.wszib.pizzamarket.web.models.PizzaModel;
 
 public class PizzaMapper {
 
-    public static PizzaModel
-    toModel(PizzaEntity entity){
+    public static PizzaModel toModel(PizzaEntity entity){
         return new PizzaModel(
                 entity.getId(),
                 entity.getName(),
