@@ -5,7 +5,7 @@
   <div class="container">
     <h1>Opinie</h1>
     <table style="width: 100%">
-      <tr th:each="coments :${coments}">
+      <tr th:each="coments :${comments}">
         <td>
           <h3 th:text="${coments.name}"></h3>
           <p style="font-weight: 200" th:text="${coments.comment}"></p>

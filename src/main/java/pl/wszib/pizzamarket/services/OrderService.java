@@ -3,33 +3,33 @@ package pl.wszib.pizzamarket.services;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-import pl.wszib.pizzamarket.data.entities.OrderAdressEntity;
-import pl.wszib.pizzamarket.data.entities.OrderEntiety;
+import pl.wszib.pizzamarket.data.entities.OrderAddressEntity;
+import pl.wszib.pizzamarket.data.entities.OrderEntity;
 import pl.wszib.pizzamarket.data.entities.PizzaEntity;
-import pl.wszib.pizzamarket.data.repositories.OrderRopository;
+import pl.wszib.pizzamarket.data.repositories.OrderRepository;
 import pl.wszib.pizzamarket.data.repositories.PizzaRepo;
 import pl.wszib.pizzamarket.web.mappers.OrderAddressMapper;
 import pl.wszib.pizzamarket.web.models.OrderAddressModel;
 
 @Service
 public class OrderService {
-    private final OrderRopository orderRopository;
+    private final OrderRepository orderRepository;
     private final PizzaRepo pizzaRepo;
 
-    public OrderService(OrderRopository orderRopository, PizzaRepo pizzaRepo) {
-        this.orderRopository = orderRopository;
+    public OrderService(OrderRepository orderRepository, PizzaRepo pizzaRepo) {
+        this.orderRepository = orderRepository;
         this.pizzaRepo = pizzaRepo;
     }
     @Transactional
-    public void seveOrder(Long pizzaId, OrderAddressModel orderAddressModel){
+    public void serveOrder(Long pizzaId, OrderAddressModel orderAddressModel){
         PizzaEntity pizzaEntity = pizzaRepo.findById(pizzaId).orElseThrow(EntityNotFoundException::new);
-        OrderAdressEntity orderAdressEntity = OrderAddressMapper.toEntity(orderAddressModel);
-        OrderEntiety orderEntiety = new OrderEntiety();
+        OrderAddressEntity orderAdressEntity = OrderAddressMapper.toEntity(orderAddressModel);
+        OrderEntity orderEntiety = new OrderEntity();
         orderEntiety.setPizzaName(pizzaEntity.getName());
         orderEntiety.setPrice(pizzaEntity.getPrice());
-        orderEntiety.setOrderAdress(orderAdressEntity);
+        orderEntiety.setOrderAddress(orderAdressEntity);
 
-        orderRopository.save(orderEntiety);
+        orderRepository.save(orderEntiety);
 
     }
 }

@@ -14,19 +14,19 @@ import java.util.List;
 
 @Controller
 @RequestMapping("comments")
-public class CommentsControler {
+public class CommentsController {
     private final CommentsService commentsService;
 
-    private CommentsControler(CommentsService commentsService) {
+    private CommentsController(CommentsService commentsService) {
 
         this.commentsService = commentsService;
     }
 
 
     @GetMapping
-    public String CommentsPage(Long commentId, Model model) {
+    public String CommentsPage(Model model) {
         List<CommentsModel> comments = commentsService.findAll();
-        model.addAttribute("coments", comments);
+        model.addAttribute("comments", comments);
         model.addAttribute("newComment", new CommentsSaveModel());
         return "commentsPage";
     }
@@ -34,8 +34,7 @@ public class CommentsControler {
     @PostMapping
     public String comment(Long commentsId, @ModelAttribute("comments") CommentsSaveModel commentsSaveModel) {
         commentsService.saveComment(commentsId, commentsSaveModel);
-        return "commentsPage";
+        return "redirect:/comments";
     }
-
 }
 

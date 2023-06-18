@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "orders")
-public class OrderEntiety {
+public class OrderEntity {
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -17,7 +17,7 @@ public class OrderEntiety {
     private BigDecimal price;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "order_address_id")
-    private     OrderAdressEntity orderAdress;
+    private OrderAddressEntity orderAddress;
 
     public Long getId() {
         return id;
@@ -43,11 +43,11 @@ public class OrderEntiety {
         this.price = price;
     }
 
-    public OrderAdressEntity getOrderAdress() {
-        return orderAdress;
+    public OrderAddressEntity getOrderAddress() {
+        return orderAddress;
     }
 
-    public void setOrderAdress(OrderAdressEntity orderAdress) {
-        this.orderAdress = orderAdress;
+    public void setOrderAddress(OrderAddressEntity orderAddress) {
+        this.orderAddress = orderAddress;
     }
 }

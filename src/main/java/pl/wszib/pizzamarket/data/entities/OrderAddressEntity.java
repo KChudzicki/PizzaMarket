@@ -1,11 +1,10 @@
 package pl.wszib.pizzamarket.data.entities;
 
 import jakarta.persistence.*;
-import org.apache.juli.logging.Log;
 
 @Entity
-@Table(name = "order_adresses")
-public class OrderAdressEntity {
+@Table(name = "order_addresses")
+public class OrderAddressEntity {
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -17,7 +16,7 @@ public class OrderAdressEntity {
     @Column(name = "street")
     private String street;
     @Column(name = "postal_code")
-    private String postalColde;
+    private String postalCode;
     @Column(name = "city")
     private String city;
 
@@ -53,12 +52,12 @@ public class OrderAdressEntity {
         this.street = street;
     }
 
-    public String getPostalColde() {
-        return postalColde;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostalColde(String postalColde) {
-        this.postalColde = postalColde;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getCity() {

@@ -5,7 +5,7 @@ public class OrderAddressModel {
     private String firstName;
     private String lastName;
     private String street;
-    private String postalColde;
+    private String postalCode;
     private String city;
 
     public String getFirstName() {
@@ -32,12 +32,12 @@ public class OrderAddressModel {
         this.street = street;
     }
 
-    public String getPostalColde() {
-        return postalColde;
+    public String getPostalCode() {
+        return postalCode;
     }
 
-    public void setPostalColde(String postalColde) {
-        this.postalColde = postalColde;
+    public void setPostalCode(String postalCode) {
+        this.postalCode = postalCode;
     }
 
     public String getCity() {

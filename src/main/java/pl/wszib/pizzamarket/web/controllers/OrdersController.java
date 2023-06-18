@@ -12,21 +12,21 @@ import pl.wszib.pizzamarket.web.models.OrderAddressModel;
 import pl.wszib.pizzamarket.web.models.PizzaModel;
 
 @Controller
-public class OrersController {
+public class OrdersController {
 
 
     private final PizzaService pizzaService;
     private final OrderService orderService;
 
-    public OrersController(PizzaService pizzaService, OrderService orderService) {
+    public OrdersController(PizzaService pizzaService, OrderService orderService) {
         this.pizzaService = pizzaService;
         this.orderService = orderService;
     }
 
     @GetMapping("order/{pizza-id}")
-    public String orderdForm(@PathVariable("pizza-id")Long pizzaId, Model model){
+    public String orderForm(@PathVariable("pizza-id")Long pizzaId, Model model){
        PizzaModel pizza = pizzaService.getById(pizzaId);
-        model.addAttribute("orderAddresss" , new OrderAddressModel());
+        model.addAttribute("orderAddress" , new OrderAddressModel());
         model.addAttribute("pizza", pizza);
 
         return "orderPage";
@@ -34,7 +34,7 @@ public class OrersController {
     @PostMapping("order/{pizza-id}")
     public String order(@PathVariable("pizza-id")Long pizzaId,
                         @ModelAttribute("orderAddress") OrderAddressModel orderAddressModel){
-       orderService.seveOrder(pizzaId,orderAddressModel);
+       orderService.serveOrder(pizzaId,orderAddressModel);
 
        return "orderConfirmationPage";
     }
