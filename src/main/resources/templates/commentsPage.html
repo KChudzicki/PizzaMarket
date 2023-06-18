@@ -13,7 +13,7 @@
       </tr>
     </table>
 
-    <form action="post" th:object="${newComment}" >
+    <form method="post" th:object="${newComment}" >
       <div>
         <input  th:field="*{name}" type="text"  placeholder="Nazwa" class="input">
       </div>
